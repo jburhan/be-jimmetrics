@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621232922) do
+ActiveRecord::Schema.define(version: 20180628194909) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.integer "registered_application_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["registered_application_id"], name: "index_events_on_registered_application_id"
+  end
 
   create_table "registered_applications", force: :cascade do |t|
     t.string "name"
@@ -34,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180621232922) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

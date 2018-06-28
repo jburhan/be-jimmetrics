@@ -1,4 +1,10 @@
 <h3><%= link_to @application.name, @application.url %></h3>
 
+<h4>Events</h4>
+
+<% @application.events.each do |event| %>
+  <p><%= event.name%></p>
+<% end %>
+
 <%= link_to "Update", edit_registered_application_path, class: 'btn btn-success'%>
 <%= link_to "De-register", @application, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>
