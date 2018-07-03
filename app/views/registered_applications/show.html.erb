@@ -1,10 +1,11 @@
+<%= javascript_include_tag "https://www.google.com/jsapi" %>
+
 <h3><%= link_to @application.name, @application.url %></h3>
 
 <h4>Events</h4>
 
-<% @application.events.each do |event| %>
-  <p><%= event.name%></p>
-<% end %>
+<%= pie_chart @application.events.group(:name).count %>
+<%= line_chart @application.events.group_by_day(:created_at).count %>
 
 <%= link_to "Update", edit_registered_application_path, class: 'btn btn-success'%>
 <%= link_to "De-register", @application, method: :delete, class: 'btn btn-danger', data: {confirm: 'Are you sure?'} %>

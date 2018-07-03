@@ -7,6 +7,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'chartkick'
+gem 'groupdate'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
